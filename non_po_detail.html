@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0 shrink-to-fit=no, user-scalable=0"
+    />
+
+    <title>ASN</title>
+    <meta content="" name="descriptison" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <meta name="theme-color" content="#0B5E97" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/logo.png"
+      sizes="194x194"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Play|Titillium+Web|Roboto+Condensed|Changa|Lobster|Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Style files -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!--- Datatables --->
+    <link
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="assets/lib/style.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header>
+        <nav
+          class="navbar navbar-expand-sm justify-content-center py-0 shadow fixed-top bg-white"
+          style="border-bottom: 3px solid #17a2b8;"
+        >
+          <a class="navbar-brand py-1 mr-0" href="#" onclick="goBack()">
+            <i class="fas fa-angle-left pl-2" style="font-size: 30px;"></i>
+          </a>
+          <div class="navbar-brand pl-3 py-1">
+            <a href="">
+              <img src="assets/images/logo2.png" height="50px" />
+            </a>
+          </div>
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link">
+                <h3 class="mb-0">
+                  400022 - ARABIAN HEALTH CARE SUPPLY COMPANY
+                </h3></a
+              >
+            </li>
+          </ul>
+          <div class="navbar-brand text-right mx-0">
+            <a href=""> <i class="fas fa-power-off"></i> Logout </a>
+          </div>
+          <a class="navbar-brand text-right mx-0"></a>
+        </nav>
+      </header>
+      <main>
+        <div class="container-fluid main_div mt-5 pt-4">
+          <div class="row py-2">
+            <div class="col-md-2 col-sm-2 col-12 text-center"></div>
+            <div class="col-md-8 col-sm-8 col-12 text-center">
+              <h4 class="text-center"><b>List of All ASN</b></h4>
+            </div>
+            <div class="col-md-2 col-sm-2 col-12 pb-2 text-center">
+              <a href="" class="btn btn-primary" style="position: absolute; right: 20px; top: 0px;">All ASN Status</a> 
+            </div>
+          </div>
+          <div class="col-12 table_fixed_height text-center">
+        
+        <table id="example" class="table table-bordered mx-auto"><!--  -->
+          <thead class="bg-info text-white">
+            <tr>
+              <th>ASN Id</th>
+               <!--<th>PO #</th>
+              <th>PO Description</th> -->
+              <th>Ship To</th>
+              <th>Delivery Date</th>
+              <th>Delivery Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-306'">
+              <td>000-000-306</td>
+              <!-- <td>20200010000001</td>
+              <td></td> -->
+              <td>Riyadh</td>
+              <td>2020-05-19</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-warning px-1"><b>New</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/1500" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/1500" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-295'">
+              <td>000-000-295</td>
+              <!-- <td>20200010000001</td>
+              <td></td> -->
+              <td>PMAH </td>
+              <td>2020-06-07</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/1471" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/1471" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-294'">
+              <td>000-000-294</td>
+              <!-- <td>20200010000001</td>
+              <td></td> -->
+              <td>PMAH </td>
+              <td>2020-06-07</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/1466" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/1466" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-293'">
+              <td>000-000-293</td>
+              <!-- <td>20200010000001</td>
+              <td></td> -->
+              <td>PMAH </td>
+              <td>2020-06-07</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/1462" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/1462" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-292'">
+              <td>000-000-292</td>
+              <!-- <td>20200010000001</td>
+              <td></td> -->
+              <td>PMAH </td>
+              <td>2020-06-07</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/1458" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/1458" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-286'">
+              <td>000-000-286</td>
+              <!-- <td>20200010000001</td>
+              <td></td> -->
+              <td>PMAH </td>
+              <td>2020-06-07</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/1415" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/1415" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-285'">
+              <td>000-000-285</td>
+              <!-- <td>20200010000001</td>
+              <td></td> -->
+              <td>PMAH </td>
+              <td>2020-06-07</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/1412" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/1412" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-244'">
+              <td>000-000-244</td>
+              <!-- <td>3900122041</td>
+              <td></td> -->
+              <td>Dammam</td>
+              <td>2020-06-03</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/1206" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/1206" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-239'">
+              <td>000-000-239</td>
+              <!-- <td>20200010000001</td>
+              <td></td> -->
+              <td>Riyadh</td>
+              <td>2020-05-18</td>
+              <td>12:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/1134" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/1134" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-207'">
+              <td>000-000-207</td>
+              <!-- <td>39001221334</td>
+              <td></td> -->
+              <td>Dammam</td>
+              <td>2020-06-01</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/899" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/899" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-189'">
+              <td>000-000-189</td>
+              <!-- <td>20200010000001</td>
+              <td></td> -->
+              <td>Dammam</td>
+              <td>2020-05-13</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/800" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/800" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                        <tr onclick="window.location.href='http://ansara.in/asn_supplier_test/web/non_pdt_details_delivery/000-000-159'">
+              <td>000-000-159</td>
+              <!-- <td>390014206129</td>
+              <td></td> -->
+              <td>Dammam</td>
+              <td>2020-05-13</td>
+              <td>08:00:00</td>
+              <td>                 <span class="text-success px-1"><b>Accepted</b></span>
+              </td>
+             <!--  <td><a href="http://ansara.in/asn_supplier_test/web/create_non_po" class="btn btn-outline-info btn-sm">Request ASN</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_update_delivery/604" class="btn btn-outline-info btn-sm">Update Delivery</a></td>
+              <td><a href="http://ansara.in/asn_supplier_test/web/non_asn_tracker/604" class="btn btn-outline-info btn-sm">Status of ASN</a></td> -->
+            </tr>
+                      </tbody>
+        </table>
+      </div>
+          <center class="my-3">
+            <a class="btn btn-primary" href="po_list.html" type="submit" value="submit">
+              Create New ASN
+            </a>
+          </center>
+        </div>
+      </main>
+      <footer>
+        <nav
+          class="navbar fixed-bottom bg-white br_title p-0"
+          style="border: none;"
+        >
+          <h6
+            class="mb-0"
+            style="font-size: 12px; color: #17a2b8; font-weight: bold;"
+          >
+            Nupco
+          </h6>
+        </nav>
+      </footer>
+    </div>
+
+    <!-- script files -->
+    <script
+      src="https://kit.fontawesome.com/80895110d5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <!--- Datatables --->
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+      type="text/javascript"
+    ></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        //     $('#example').DataTable();
+
+        // } );
+        $("#example").dataTable({
+          order: [[0, "desc"]],
+          iDisplayLength: 100,
+          drawCallback: function (settings) {
+            var pagination = $(this)
+              .closest(".dataTables_wrapper")
+              .find(".dataTables_paginate");
+            pagination.toggle(this.api().page.info().pages > 1);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

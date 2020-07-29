@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0 shrink-to-fit=no, user-scalable=0"
+    />
+
+    <title>ASN</title>
+    <meta content="" name="descriptison" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <meta name="theme-color" content="#0B5E97" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/logo.png"
+      sizes="194x194"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Play|Titillium+Web|Roboto+Condensed|Changa|Lobster|Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Style files -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!--- Datatables --->
+    <link
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="assets/lib/style.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header>
+        <nav
+          class="navbar navbar-expand-sm justify-content-center py-0 shadow fixed-top bg-white"
+          style="border-bottom: 3px solid #17a2b8;"
+        >
+          <a class="navbar-brand py-1 mr-0" href="#" onclick="goBack()">
+            <i class="fas fa-angle-left pl-2" style="font-size: 30px;"></i>
+          </a>
+          <div class="navbar-brand pl-3 py-1">
+            <a href="">
+              <img src="assets/images/logo2.png" height="50px" />
+            </a>
+          </div>
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link">
+                <h3 class="mb-0">
+                  400022 - ARABIAN HEALTH CARE SUPPLY COMPANY
+                </h3></a
+              >
+            </li>
+          </ul>
+          <div class="navbar-brand text-right mx-0">
+            <a href=""> <i class="fas fa-power-off"></i> Logout </a>
+          </div>
+          <a class="navbar-brand text-right mx-0"></a>
+        </nav>
+      </header>
+      <main>
+        <div class="container-fluid main_div mt-5 pt-4">
+          <div class="row">
+            <div class="col-md-2 col-sm-2 col-12 text-center"></div>
+            <div class="col-md-8 col-sm-8 col-12 text-center">
+              <h4 class="text-center"><b>PO List</b></h4>
+            </div>
+            <div class="col-md-2 col-sm-2 col-12 pb-2 text-center"></div>
+          </div>
+          <div class="mb-4" style="border: 2px solid #dee2e6;">
+            <form class="" action="">
+              <div class="row p-2 mx-0">
+                <div class="col-md-6 col-sm-12 col-12">
+                  <div class="form-row">
+                    <label class="col-md-4 col-sm-4 col-4"
+                      ><b>Moh Po Number</b></label
+                    >
+                    <label class="col-md-1 col-sm-1 col-1 px-0">:</label>
+                    <input
+                      type="text"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="mohpo_no"
+                      placeholder="from"
+                    />
+                    <label class="col-md-1 col-sm-1 col-1 px-0"></label>
+                    <input
+                      type="text"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="po_no"
+                      placeholder="to"
+                    />
+                  </div>
+                  <div class="form-row py-1">
+                    <label class="col-md-4 col-sm-4 col-4"
+                      ><b>Nupco Po Number</b></label
+                    >
+                    <label class="col-md-1 col-sm-1 col-1 px-0">:</label>
+                    <input
+                      type="text"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="nuppo_no"
+                      placeholder="from"
+                    />
+                    <label class="col-md-1 col-sm-1 col-1 px-0"></label>
+                    <input
+                      type="text"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="po_no"
+                      placeholder="to"
+                    />
+                  </div>
+                  <div class="form-row">
+                    <label class="col-md-4 col-sm-4 col-4"
+                      ><b>Po Date</b></label
+                    >
+                    <label class="col-md-1 col-sm-1 col-1 px-0">:</label>
+                    <input
+                      type="date"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="po_no"
+                      placeholder="from"
+                    />
+                    <label class="col-md-1 col-sm-1 col-1 px-0"></label>
+                    <input
+                      type="date"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="po_no"
+                      placeholder="to"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-12">
+                  <div class="form-row">
+                    <label class="col-md-4 col-sm-4 col-4"
+                      ><b>Moh Material Code</b></label
+                    >
+                    <label class="col-md-1 col-sm-1 col-1 px-0">:</label>
+                    <input
+                      type="text"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="mohpo_no"
+                      placeholder="from"
+                    />
+                    <label class="col-md-1 col-sm-1 col-1 px-0"></label>
+                    <input
+                      type="text"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="po_no"
+                      placeholder="to"
+                    />
+                  </div>
+                  <div class="form-row py-1">
+                    <label class="col-md-4 col-sm-4 col-4"
+                      ><b>Nupco Material Code</b></label
+                    >
+                    <label class="col-md-1 col-sm-1 col-1 px-0">:</label>
+                    <input
+                      type="text"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="nuppo_no"
+                      placeholder="from"
+                    />
+                    <label class="col-md-1 col-sm-1 col-1 px-0"></label>
+                    <input
+                      type="text"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="po_no"
+                      placeholder="to"
+                    />
+                  </div>
+                  <div class="form-row">
+                    <label class="col-md-4 col-sm-4 col-4"
+                      ><b>Material Description</b></label
+                    >
+                    <label class="col-md-1 col-sm-1 col-1 px-0">:</label>
+                    <input
+                      type="date"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="po_no"
+                      placeholder="from"
+                    />
+                    <label class="col-md-1 col-sm-1 col-1 px-0"></label>
+                    <input
+                      type="date"
+                      class="form-control-sm br_cr col-md-3 col-sm-3 col-3"
+                      id="po_no"
+                      placeholder="to"
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!--========= border close ========-->
+          <div class="col-12 table_fixed_height text-center px-0">
+            <table id="example" class="table table-bordered mx-auto mb-0">
+              <thead class="bg-info text-white">
+                <tr>
+                  <th>All</th>
+                  <th>PO No</th>
+                  <th>Total Value</th>
+                  <th>PO Date</th>
+                  <th>Plant</th>
+                  <th>PO Qty</th>
+                  <th>Delivered Qty</th>
+                  <th>Remaining Qty</th>
+                </tr>
+              </thead>
+
+              <tbody style="cursor: pointer;">
+                <tr>
+                  <!-- onclick="window.location.href='https://ansara.in/asn2c/web/create_new_gr/4500015950'" -->
+                  <td>
+                    <input type="checkbox" name="po_no[]" value="4500015950" />
+                  </td>
+                  <td>4500015950</td>
+                  <td>233,480.73</td>
+
+                  <td>2020-03-01</td>
+                  <!-- <td>2020-07-11</td> -->
+                  <td>ESC1</td>
+                  <td class="text-right">372,477.00</td>
+                  <td class="text-right">255,150.00</td>
+                  <td class="text-right">117,327.00</td>
+                </tr>
+                <tr>
+                  <!-- onclick="window.location.href='https://ansara.in/asn2c/web/create_new_gr/4500015967'" -->
+                  <td>
+                    <input type="checkbox" name="po_no[]" value="4500015967" />
+                  </td>
+                  <td>4500015967</td>
+                  <td>6,603,879.73</td>
+
+                  <td>2020-03-12</td>
+                  <!-- <td>2020-08-30</td> -->
+                  <td>ESC1</td>
+                  <td class="text-right">1,690,475.00</td>
+                  <td class="text-right">255,264.00</td>
+                  <td class="text-right">1,435,211.00</td>
+                </tr>
+                <tr>
+                  <!-- onclick="window.location.href='https://ansara.in/asn2c/web/create_new_gr/4500015984'" -->
+                  <td>
+                    <input type="checkbox" name="po_no[]" value="4500015984" />
+                  </td>
+                  <td>4500015984</td>
+                  <td>22,750,942.90</td>
+
+                  <td>2020-03-25</td>
+                  <!-- <td>2020-10-30</td> -->
+                  <td>ESC1</td>
+                  <td class="text-right">3,584,878.00</td>
+                  <td class="text-right">37,812.00</td>
+                  <td class="text-right">3,547,066.00</td>
+                </tr>
+                <tr>
+                  <!-- onclick="window.location.href='https://ansara.in/asn2c/web/create_new_gr/4500016822'" -->
+                  <td>
+                    <input type="checkbox" name="po_no[]" value="4500016822" />
+                  </td>
+                  <td>4500016822</td>
+                  <td>142,670.00</td>
+
+                  <td>2020-07-13</td>
+                  <!-- <td>2020-07-13</td> -->
+                  <td>ESC4</td>
+                  <td class="text-right">3,400.00</td>
+                  <td class="text-right">0.00</td>
+                  <td class="text-right">3,400.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <center class="my-3">
+            <a
+              class="btn btn-primary"
+              href="create_new_gr.html"
+              type="submit"
+              value="submit"
+            >
+              Create ASN
+            </a>
+            <a
+              class="btn btn-primary"
+              href="request.html"
+              type="submit"
+              value="submit"
+            >
+              Create ASN
+            </a>
+          </center>
+        </div>
+      </main>
+      <footer>
+        <nav
+          class="navbar fixed-bottom bg-white br_title p-0"
+          style="border: none;"
+        >
+          <h6
+            class="mb-0"
+            style="font-size: 12px; color: #17a2b8; font-weight: bold;"
+          >
+            Nupco
+          </h6>
+        </nav>
+      </footer>
+    </div>
+
+    <!-- script files -->
+    <script
+      src="https://kit.fontawesome.com/80895110d5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <!--- Datatables --->
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+      type="text/javascript"
+    ></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        //     $('#example').DataTable();
+
+        // } );
+        $("#example").dataTable({
+          order: [[0, "desc"]],
+          iDisplayLength: 100,
+          drawCallback: function (settings) {
+            var pagination = $(this)
+              .closest(".dataTables_wrapper")
+              .find(".dataTables_paginate");
+            pagination.toggle(this.api().page.info().pages > 1);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
