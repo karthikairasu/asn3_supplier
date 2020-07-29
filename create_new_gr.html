@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0 shrink-to-fit=no, user-scalable=0"
+    />
+
+    <title>ASN</title>
+    <meta content="" name="descriptison" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <meta name="theme-color" content="#0B5E97" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/logo.png"
+      sizes="194x194"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Play|Titillium+Web|Roboto+Condensed|Changa|Lobster|Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Style files -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!--- Datatables --->
+    <link
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="assets/lib/style.css" />
+    <style type="text/css">
+      /*Hide Input arrows*/
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+      .main_div {
+        width: 100%;
+      }
+      #add_newrow tbody td {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+      }
+      .table_padding thead tr th {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        white-space: nowrap;
+      }
+      .table_padding tbody tr td {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      .table_fixed_height {
+        max-height: 335px;
+        overflow-y: auto;
+        width: 100%;
+        border-bottom: 1px solid #dcdcdc;
+      }
+      .read_only {
+        user-select: none;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+      .start_date .gj-datepicker .input-group-append button {
+        height: calc(1.5em + 0.55rem + 1px);
+      }
+      .select_box {
+        max-width: 100%;
+        background-color: #cac7c7;
+        border: 1px solid #565656;
+      }
+      .selected {
+        text-align: right;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: white;
+      }
+      .fill {
+        width: 100%;
+        background-color: #2196f3;
+        text-align: center;
+      }
+
+      .time_tbl td,
+      .time_tbl th {
+        padding: 8px 3px;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+      }
+      .time_tbl input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        vertical-align: bottom;
+      }
+
+      .time_tbl input[type="radio"]:after {
+        content: "";
+        border-bottom: 10px solid red;
+        border-top: 10px solid red;
+        display: block;
+        opacity: 1;
+      }
+
+      .time_tbl input[type="radio"]:checked:after {
+        border-bottom: 10px solid blue;
+        border-top: 10px solid blue;
+      }
+      /*#set_timein:focus{
+    box-shadow: none;
+    border-bottom: 1px solid red;
+  }*/
+      .parsley-success {
+        color: #468847;
+        background-color: #dff0d8;
+        border: 1px solid #d6e9c6;
+      }
+      .parsley-required {
+        display: none;
+      }
+      .parsley-errors-list {
+        color: red;
+        list-style-type: none;
+        font-size: 14px;
+        margin-left: -37px;
+      }
+      /*.parsley-error {
+  color: #B94A48;
+  background-color: #F2DEDE;
+  border: 1px solid #EED3D7;
+}*/
+      .table_tab .nav-item.show .nav-link,
+      .table_tab .nav-link.active {
+        color: #fff;
+        background-color: #17a2b8;
+        border: 1px solid transparent;
+        box-shadow: 0 0 4px 0px #000000d6;
+      }
+
+      .table_tab .nav-link {
+        color: #fff;
+        background-color: #e23719;
+        border: 1px solid transparent;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        box-shadow: 0 0 1px #e43023;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header>
+        <nav
+          class="navbar navbar-expand-sm justify-content-center py-0 shadow fixed-top bg-white"
+          style="border-bottom: 3px solid #17a2b8;"
+        >
+          <a class="navbar-brand py-1 mr-0" href="#" onclick="goBack()">
+            <i class="fas fa-angle-left pl-2" style="font-size: 30px;"></i>
+          </a>
+          <div class="navbar-brand pl-3 py-1">
+            <a href="">
+              <img src="assets/images/logo2.png" height="50px" />
+            </a>
+          </div>
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link">
+                <h3 class="mb-0">
+                  400022 - ARABIAN HEALTH CARE SUPPLY COMPANY
+                </h3></a
+              >
+            </li>
+          </ul>
+          <div class="navbar-brand text-right mx-0">
+            <a href=""> <i class="fas fa-power-off"></i> Logout </a>
+          </div>
+          <a class="navbar-brand text-right mx-0"></a>
+        </nav>
+      </header>
+      <main>
+        <div class="container-fluid main_dev mt-5 pt-4">
+          <div class="row">
+            <div class="col-md-2 col-sm-2 col-12 text-center"></div>
+            <div class="col-md-8 col-sm-8 col-12 text-center">
+              <h4 class="text-center"><b></b></h4>
+            </div>
+            <div class="col-md-2 col-sm-2 col-12 pb-2 text-center"></div>
+          </div>
+          <div class="mb-2" style="border: 2px solid #dee2e6;">
+            <form class="" action="">
+              <div class="row p-2 mx-0">
+                <div class="col-md-6 col-sm-12 col-12">
+                  <div class="form-row py-1">
+                    <div class="col-md-2 col-sm-3 col-3 px-0">
+                      <label><b>Import&ensp;XLSX</b></label>
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-1">
+                      :
+                    </div>
+                    <div class="col-md-4 col-sm-3 col-3 px-0">
+                      <input
+                        type="file"
+                        name="csv_file"
+                        class="form-control br_cr"
+                        id="csv_file"
+                        required
+                        accept=".xlsx"
+                      />
+                    </div>
+                    <div class="col-md-5 col-sm-5 col-5 px-1">
+                      <input
+                        type="submit"
+                        name="import_csv"
+                        class="form-control-sm br_cr btn btn-info btn-sm"
+                        id="import_csv_btn"
+                      />
+                      <a
+                        href="http://ansara.in/asn_supplier_test/assets/ASNRequest.xlsx"
+                        class="btn btn-info btn-sm"
+                        id="import_csv_btn"
+                        >Download Template</a
+                      >
+                    </div>
+                  </div>
+                  <div class="form-row py-1">
+                    <label class="col-md-2 col-sm-3 col-3"
+                      ><b>Ship To</b></label
+                    >
+                    <label class="col-md-1 col-sm-1 col-1 px-0">:</label>
+                    <select
+                      class="form-control-sm br_cr col-md-8 col-sm-7 col-7"
+                      name="shipping_address"
+                      style="width: 60%;"
+                      required
+                    >
+                      <option value="">Select Plant</option>
+                      <option value="1">Riyadh</option>
+                      <option value="2">Jeddha</option>
+                      <option value="3">Dammam</option>
+                      <option value="4">PMAH </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2 col-sm-12 col-12"></div>
+                <div class="col-md-4 col-sm-12 col-12">
+                  <div class="form-row py-1">
+                    <label class="col-md-2 col-sm-3 col-4"><b>Date</b></label>
+                    <label class="col-md-1 col-sm-1 col-1 px-0">:</label>
+                    <input
+                      type="text"
+                      class="form-control-sm br_cr col-md-8 col-sm-7 col-7 py-0 mb-1 date_chk"
+                      id="datepicker"
+                      placeholder="YYYY-MM-DD"
+                      required
+                    />
+                  </div>
+                  <div class="form-row py-1">
+                    <label class="col-md-2 col-sm-3 col-4"><b>Time</b></label>
+                    <label class="col-md-1 col-sm-1 col-1 px-0">:</label>
+
+                    <div
+                      class="col-md-8 col-sm-7 col-7 btn-group mb-0"
+                      style="width: 75%;"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="select_time(8)"
+                      >
+                        Morning
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="select_time(12)"
+                      >
+                        Afternoon
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!--========= border close ========-->
+          <ul class="nav nav-tabs table_tab" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="nav-home-tab"
+                data-toggle="tab"
+                href="#nav-home"
+                role="tab"
+                aria-controls="nav-home"
+                aria-selected="true"
+                >PO Details</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="nav-profile-tab"
+                data-toggle="tab"
+                href="#nav-profile"
+                role="tab"
+                aria-controls="nav-profile"
+                aria-selected="false"
+                >Nupco PO Details</a
+              >
+            </li>
+            <button
+              class="btn btn-warning mb-1 ml-auto"
+              type="button"
+              onclick="add_newrow()"
+            >
+              Add New
+            </button>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div
+              class="tab-pane active"
+              id="nav-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
+            >
+              <div class="row justify-content-center mx-0">
+                <div class="col-12 text-center px-0 table_fixed_height">
+                  <table
+                    class="table table-bordered mx-auto po_table table_padding mb-0"
+                    id="add_newrow"
+                  >
+                    <thead class="bg-info text-white">
+                      <tr>
+                        <th class="px-1" width="4%">Action</th>
+                        <th class="px-1" width="10%">MOH PO #</th>
+                        <th class="px-1" width="10%">MOH PO Item #</th>
+                        <th class="px-1">Item Description</th>
+                        <th class="px-1" width="10%">MOH Gen Code</th>
+                        <th class="px-1" width="10%">Invoice Number</th>
+                        <th class="px-1" width="5%">PO Qty</th>
+                        <th class="px-1" width="5%">UOM</th>
+                        <th class="px-1" width="8%">Request Qty</th>
+                        <th class="px-1" width="8%">Pallet count</th>
+                        <th class="px-1" width="8%">Unit Price</th>
+                        <th class="px-1" width="8%">Currency</th>
+                        <th class="px-1" width="4%">Batch</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="px-1">
+                          <button
+                            class="btn btn-sm btn-danger"
+                            type="button"
+                            style="line-height: 1;"
+                            disabled
+                            onclick="delete_newrow(this)"
+                          >
+                            <span aria-hidden="true" style="font-size: 20px;"
+                              >&times;</span
+                            >
+                          </button>
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="po_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="number"
+                            name="po_item_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="po_desc_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="number"
+                            name="moh_gen_code_1"
+                            required
+                          />
+                        </td>
+                        <!-- <td class="px-1">
+                      <input class="form-control px-1" type='number' required data-parsley-type='integer' name="invoice_no_1" data-parsley-error-message='Only Numeric Value'>
+                    </td> -->
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="invoice_no_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="number"
+                            name="po_qty_1"
+                            id="po_qty_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="uom_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1 read_only request_qty_1"
+                            type="text"
+                            name="new_qty_1"
+                            id="new_qty_1"
+                            min="1"
+                            required
+                            readonly
+                          />
+                          <input
+                            class="form-control px-1 read_only request_qty_1"
+                            type="hidden"
+                            name="new_qty_1"
+                            id="new_qty_1"
+                            min="1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control totalprice px-1 new_pallet_1"
+                            data-item_id="1"
+                            type="number"
+                            name="new_pallet_1"
+                            min="0"
+                            step="0.1"
+                            onkeyup="palletCount()"
+                            required=""
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="unit_price_1"
+                            required=""
+                          />
+                        </td>
+                        <!-- <td class="px-1">
+                      <input class="form-control px-1" type="number" name="currency_1" required data-parsley-type="integer" step="0.01" data-parsley-error-message="Only Numeric Value">
+                    </td> -->
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="currency_1"
+                            required=""
+                          />
+                        </td>
+                        <td class="px-1">
+                          <button
+                            class="btn btn-warning"
+                            autofocus
+                            onclick="batch(1)"
+                            type="button"
+                            required=""
+                          >
+                            Batch
+                          </button>
+                        </td>
+                        <input
+                          type="hidden"
+                          required=""
+                          name="total_item[]"
+                          value="1"
+                        />
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="form-group text-center mt-3 mb-0">
+                  <button
+                    type="sumbit"
+                    name="submit"
+                    value="sumbit9"
+                    id="bat"
+                    onclick="check_qty()"
+                    class="btn btn-info"
+                  >
+                    Send Request
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- ========nav-home close======= -->
+            <div
+              class="tab-pane"
+              id="nav-profile"
+              role="tabpanel"
+              aria-labelledby="nav-profile-tab"
+            >
+              <div class="row justify-content-center mx-0">
+                <div class="col-12 text-center px-0 table_fixed_height">
+                  <table
+                    class="table table-bordered mx-auto po_table table_padding mb-0"
+                    id="add_newrow"
+                  >
+                    <thead class="bg-info text-white">
+                      <tr>
+                        <th class="px-1" width="4%">Action</th>
+                        <th class="px-1" width="10%">NUPCO PO #</th>
+                        <th class="px-1" width="10%">NUPCO PO Item #</th>
+                        <th class="px-1">Item Description</th>
+                        <th class="px-1" width="10%">NUPCO Gen Code</th>
+                        <th class="px-1" width="10%">Invoice Number</th>
+                        <th class="px-1" width="5%">NUPCO Qty</th>
+                        <th class="px-1" width="5%">UOM</th>
+                        <th class="px-1" width="8%">Request Qty</th>
+                        <th class="px-1" width="8%">Pallet count</th>
+                        <th class="px-1" width="8%">Unit Price</th>
+                        <th class="px-1" width="8%">Currency</th>
+                        <th class="px-1" width="4%">Batch</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="px-1">
+                          <button
+                            class="btn btn-sm btn-danger"
+                            type="button"
+                            style="line-height: 1;"
+                            disabled
+                            onclick="delete_newrow(this)"
+                          >
+                            <span aria-hidden="true" style="font-size: 20px;"
+                              >&times;</span
+                            >
+                          </button>
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="po_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="number"
+                            name="po_item_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="po_desc_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="number"
+                            name="moh_gen_code_1"
+                            required
+                          />
+                        </td>
+                        <!-- <td class="px-1">
+                      <input class="form-control px-1" type='number' required data-parsley-type='integer' name="invoice_no_1" data-parsley-error-message='Only Numeric Value'>
+                    </td> -->
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="invoice_no_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="number"
+                            name="po_qty_1"
+                            id="po_qty_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="uom_1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1 read_only request_qty_1"
+                            type="text"
+                            name="new_qty_1"
+                            id="new_qty_1"
+                            min="1"
+                            required
+                            readonly
+                          />
+                          <input
+                            class="form-control px-1 read_only request_qty_1"
+                            type="hidden"
+                            name="new_qty_1"
+                            id="new_qty_1"
+                            min="1"
+                            required
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control totalprice px-1 new_pallet_1"
+                            data-item_id="1"
+                            type="number"
+                            name="new_pallet_1"
+                            min="0"
+                            step="0.1"
+                            onkeyup="palletCount()"
+                            required=""
+                          />
+                        </td>
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="unit_price_1"
+                            required=""
+                          />
+                        </td>
+                        <!-- <td class="px-1">
+                      <input class="form-control px-1" type="number" name="currency_1" required data-parsley-type="integer" step="0.01" data-parsley-error-message="Only Numeric Value">
+                    </td> -->
+                        <td class="px-1">
+                          <input
+                            class="form-control px-1"
+                            type="text"
+                            name="currency_1"
+                            required=""
+                          />
+                        </td>
+                        <td class="px-1">
+                          <button
+                            class="btn btn-warning"
+                            autofocus
+                            onclick="batch(1)"
+                            type="button"
+                            required=""
+                          >
+                            Batch
+                          </button>
+                        </td>
+                        <input
+                          type="hidden"
+                          required=""
+                          name="total_item[]"
+                          value="1"
+                        />
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="form-group text-center mt-3 mb-0">
+                  <button
+                    type="sumbit"
+                    name="submit"
+                    value="sumbit9"
+                    id="bat"
+                    onclick="check_qty()"
+                    class="btn btn-info"
+                  >
+                    Send Request
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- =========nav-profile========= -->
+          </div>
+        </div>
+      </main>
+      <footer>
+        <nav
+          class="navbar fixed-bottom bg-white br_title p-0"
+          style="border: none;"
+        >
+          <h6
+            class="mb-0"
+            style="font-size: 12px; color: #17a2b8; font-weight: bold;"
+          >
+            Nupco
+          </h6>
+        </nav>
+      </footer>
+    </div>
+    <!-- The Modal -->
+    <div id="add_model_1"></div>
+    <div class="modal" id="split_modal_1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header py-1">
+            <h4 class="modal-title mx-auto"><b>Batch</b></h4>
+            <button
+              type="button"
+              class="close ml-0 pl-0 pb-0"
+              data-dismiss="modal"
+            >
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <form
+            id="temp_frm_1"
+            data-parsley-validate="true"
+            name="temp_frm"
+            action="http://ansara.in/asn_supplier_test/web/add_qty"
+            method="post"
+          >
+            <div class="modal-body pt-1">
+              <button
+                class="float-right btn btn-info mb-1"
+                type="button"
+                onclick="Addtd(1)"
+              >
+                Add New
+              </button>
+              <table class="table table-bordered" id="split_table_1">
+                <thead class="bg-info text-white text-nowrap text-center">
+                  <tr>
+                    <th class="px-1" width="5%">Action</th>
+                    <th>Qty</th>
+                    <th>Vendor Batch</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiry Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <button
+                        class="btn btn-sm btn-danger"
+                        type="button"
+                        name="action2"
+                        style="line-height: 1;"
+                        disabled
+                        onclick="delete_newroww(this)"
+                      >
+                        <span aria-hidden="true" style="font-size: 20px;"
+                          >&times;</span
+                        >
+                      </button>
+                    </td>
+                    <td>
+                      <input
+                        class="form-control px-1 popup_qty_1"
+                        onkeyup="popupqty_count(1)"
+                        type="number"
+                        name="new_qty[]"
+                        required
+                        data-parsley-type="integer"
+                        data-parsley-error-message="Only Numeric Value"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        class="form-control px-1"
+                        type="text"
+                        name="vendor_batch_qty[]"
+                        required
+                      />
+                    </td>
+                    <td>
+                      <input
+                        class="form-control px-1 datepicker"
+                        type="text"
+                        onkeydown="return false"
+                        id="startDate-0"
+                        name="manu_date_qty[]"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        class="form-control px-1 datepicker"
+                        type="text"
+                        onkeydown="return false"
+                        id="endDate-0"
+                        name="expiry_date_qty[]"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Modal footer -->
+            <input type="hidden" name="item_id" id="popup_item_id_1" />
+            <input type="hidden" name="po_type" value="1" />
+            <div class="modal-footer justify-content-center">
+              <button
+                type="button"
+                onclick="submitBtn(1)"
+                class="btn btn-success"
+              >
+                Submit
+              </button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- script files -->
+    <script
+      src="https://kit.fontawesome.com/80895110d5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <!--- Datatables --->
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+      type="text/javascript"
+    ></script>
+    <!--- DatePicker --->
+    <script
+      src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"
+      type="text/javascript"
+    ></script>
+    <link
+      href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="http://parsleyjs.org/dist/parsley.min.js"
+      type="text/javascript"
+    ></script>
+
+    <script type="text/javascript">
+      let count = 2;
+      function add_newrow() {
+        var table = document.getElementById("add_newrow");
+
+        var row = table.insertRow();
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
+        var cell8 = row.insertCell(7);
+        var cell9 = row.insertCell(8);
+        var cell10 = row.insertCell(9);
+        var cell11 = row.insertCell(10);
+        var cell12 = row.insertCell(11);
+        var cell13 = row.insertCell(12);
+
+        cell1.innerHTML =
+          '<button class="btn btn-sm btn-danger" type="button" style="line-height: 1;" onclick="delete_newrow(this)"><span aria-hidden="true" style="font-size: 20px;">&times;</span></button>';
+        cell2.innerHTML =
+          '<input class="form-control px-1" type="text" name="po_' +
+          count +
+          '" required>';
+        cell3.innerHTML =
+          '<input class="form-control px-1" type="number" name="po_item_' +
+          count +
+          '" required>';
+        cell4.innerHTML =
+          '<input class="form-control px-1" type="text" name="po_desc_' +
+          count +
+          '" required>';
+        cell5.innerHTML =
+          '<input class="form-control px-1" type="number" name="moh_gen_code_' +
+          count +
+          '" required>';
+
+        cell6.innerHTML =
+          '<input class="form-control px-1" type="text" required  name="invoice_no_' +
+          count +
+          '" >';
+        cell7.innerHTML =
+          '<input class="form-control px-1" type="number" name="po_qty_' +
+          count +
+          '" required>';
+        cell8.innerHTML =
+          '<input class="form-control px-1" type="text" name="uom_' +
+          count +
+          '" required>';
+        cell9.innerHTML =
+          '<input class="form-control px-1 read_only request_qty_' +
+          count +
+          '" type="text" name="new_qty_' +
+          count +
+          '"  min="1" required readonly><input class="form-control px-1 read_only request_qty_' +
+          count +
+          '" type="hidden" name="new_qty_' +
+          count +
+          '"  min="1"  required>';
+        cell10.innerHTML =
+          '<input class="form-control totalprice px-1 new_pallet_' +
+          count +
+          '" data-item_id="' +
+          count +
+          '" type="number" name="new_pallet_' +
+          count +
+          '" min="0" required step="0.1" onkeyup="palletCount()">';
+        cell11.innerHTML =
+          '<input class="form-control px-1" type="text" name="unit_price_' +
+          count +
+          '" required>';
+        cell12.innerHTML =
+          '<input class="form-control px-1" type="text" required name="currency_' +
+          count +
+          '">';
+        cell13.innerHTML =
+          '<button class="btn btn-warning" onclick="batch(' +
+          count +
+          ')" type="button">Batch</button><input type="hidden" name="total_item[]" value="' +
+          count +
+          '" >';
+
+        let model =
+          '<div id="add_model_' +
+          count +
+          '"></div><div class="modal" id="split_modal_' +
+          count +
+          '"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content"><div class="modal-header py-1"><h4 class="modal-title mx-auto"><b>Batch</b></h4><button type="button" class="close ml-0 pl-0 pb-0" data-dismiss="modal">&times;</button></div><form id="temp_frm_' +
+          count +
+          '" name="temp_frm" action="http://ansara.in/asn_supplier_test/web/add_qty" method="post" ><div class="modal-body pt-1"><button class="float-right btn btn-info mb-1" type="button" onclick="Addtd(' +
+          count +
+          ')">Add New</button> <table class="table table-bordered" id="split_table_' +
+          count +
+          '"> <thead class="bg-info text-white text-nowrap text-center"><tr><th class="px-1" width="5%">Action</th><th>Qty</th> <th>Vendor Batch</th> <th>Manufacture Date</th><th>Expiry Date</th>    </tr></thead><tbody><tr><td><button class="btn btn-sm btn-danger" type="button" name="action2" style="line-height: 1;"disabled onclick="delete_newrow(this)"><span aria-hidden="true" style="font-size: 20px;">&times;</span></button></td> <td><input class="form-control px-1 popup_qty_' +
+          count +
+          '" onkeyup="popupqty_count(' +
+          count +
+          ')" type="number" name="new_qty[]" required data-parsley-type="integer" data-parsley-error-message="Only Numeric Value" ></td><td><input class="form-control px-1" type="text" name="vendor_batch_qty[]" required ></td><td><input class="form-control px-1 datepicker" type="text" name="manu_date_qty[]"  id="startDate"></td><td><input class="form-control px-1 datepicker" type="text" name="expiry_date_qty[]" id="endDate"  ></td></tr></tbody></table></div><input type="hidden" name="item_id" id="popup_item_id_' +
+          count +
+          '"> <div class="modal-footer justify-content-center"><button type="button" onclick="submitBtn(' +
+          count +
+          ')" class="btn btn-success">Submit</button><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></div></form></div></div></div>';
+        let count_t = count - 1;
+        $("#add_model_" + count_t).html(model);
+        count++;
+      }
+
+      function delete_newrow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("add_newrow").deleteRow(i);
+      }
+
+      function delete_newroww(r, item_id) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("split_table_" + item_id).deleteRow(i);
+      }
+      $("#bat").attr("disabled", true);
+      function submitBtn(item_id) {
+        if (
+          $("#temp_frm_" + item_id)
+            .parsley()
+            .validate()
+        ) {
+          $.ajax({
+            // create an AJAX call...
+            data: $("#temp_frm_" + item_id).serialize(), // get the form data
+            type: "post", // GET or POST
+            url: "http://ansara.in/asn_supplier_test/web/add_qty", // the file to call
+            success: function (response) {
+              // on success..
+              $("#batch_res").html();
+              $("#batch_res").html(
+                "<div class='alert alert-success' role='alert'>Batch Set Successfully<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden = 'true' >&times; </span></button></div>"
+              );
+              var sum = 0;
+              $(".popup_qty_" + item_id).each(function () {
+                sum += +$(this).val();
+              });
+              $(".request_qty_" + item_id).val(sum);
+              $("#split_modal_" + item_id).modal("hide");
+              $("#bat").attr("disabled", false);
+            },
+          });
+        } else {
+          console.log("invalid");
+        }
+      }
+      /*popup Fuctionality*/
+      var rows = 0;
+      function Addtd(item_id) {
+        var table = document.getElementById("split_table_" + item_id);
+        var row = table.insertRow();
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+
+        cell1.innerHTML =
+          '<button class="btn btn-sm btn-danger" type="button" style="line-height: 1;" onclick="delete_newroww(this,' +
+          item_id +
+          ')"><span aria-hidden="true" style="font-size: 20px;">&times;</span></button>';
+        cell2.innerHTML =
+          "<input class='form-control px-1 popup_qty_" +
+          item_id +
+          "' onkeyup='popupqty_count(" +
+          item_id +
+          ")'' type='number' name='new_qty[]' required data-parsley-type='integer' data-parsley-error-message='Only Numeric Value'>";
+        cell3.innerHTML =
+          "<input class='form-control px-1' type='text' name='vendor_batch_qty[]' required >";
+        cell4.innerHTML =
+          "<input class='form-control px-1 datepicker' type='text' id='startDate-" +
+          rows +
+          "' name='manu_date_qty[]'>";
+        cell5.innerHTML =
+          "<input class='form-control px-1 datepicker' type='text' id='endDate-" +
+          rows +
+          "' name='expiry_date_qty[]'>";
+      }
+      function batch(item_id) {
+        $("#split_modal_" + item_id).modal();
+        $("#popup_item_id_" + item_id).val(item_id);
+      }
+
+      function popupqty_count(item_id) {
+        /*var sum = 0;
+    $(".popup_qty_"+item_id).each(function(){
+       sum += +$(this).val();
+    });
+    $(".request_qty_"+item_id).val(sum);*/
+      }
+      /* End popup Fuctionality*/
+      /*$('#form').parsley();*/
+
+      $(document).on("focus", ".datepicker", function () {
+        var ids = $(this).attr("id");
+        var iid = ids.split("-");
+
+        if ("startDate" == iid[0]) {
+          $(this).datepicker({
+            uiLibrary: "bootstrap4",
+            iconsLibrary: "fontawesome",
+            format: "yyyy-mm-dd",
+            todayHighlight: true,
+            autoclose: true,
+          });
+        } else if ("endDate" == iid[0]) {
+          $(this).datepicker({
+            uiLibrary: "bootstrap4",
+            iconsLibrary: "fontawesome",
+            format: "yyyy-mm-dd",
+            todayHighlight: true,
+            autoclose: true,
+            minDate: function () {
+              return $("#startDate-" + iid[1]).val();
+            },
+          });
+        }
+      });
+
+      var today = new Date(
+        new Date().getFullYear(),
+        new Date().getMonth(),
+        new Date().getDate()
+      );
+      $("#startDa").datepicker({
+        uiLibrary: "bootstrap4",
+        iconsLibrary: "fontawesome",
+        // width: 75%,
+        minDate: today,
+        format: "yyyy-mm-dd",
+      });
+    </script>
+  </body>
+</html>
